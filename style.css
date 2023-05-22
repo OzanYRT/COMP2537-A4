@@ -1,0 +1,85 @@
+/* Default light mode */
+body {
+  --bg-color: white;
+  --text-color: black;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Dark mode */
+body.dark-mode {
+  --bg-color: #333;
+  --text-color: white;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+
+#game_grid {
+  box-sizing: content-box;
+  border: 2px tomato solid;
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transition: transform 1s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+img {
+  width: 100%
+}
+
+
+.front_face,
+.back_face {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front_face {
+  transform: rotateY(180deg); /* Rotate the front face to back by default */
+}
+
+.back_face {
+  transform: rotateY(0); /* Show the back face by default */
+}
+
+.card.flip .front_face {
+  transform: rotateY(0); /* Rotate to front when card is flipped */
+}
+
+.card.flip .back_face {
+  transform: rotateY(-180deg); /* Rotate to back when card is flipped */
+}
+
+.card.matched .front_face,
+.card.matched .back_face {
+  transform: rotateY(0); /* Rotate to front when card is matched */
+}
+
+.card.matched .back_face {
+  display: none; /* Hide the back face when card is matched */
+}
+
+
+
+header {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+}
+
+
+
+
+
